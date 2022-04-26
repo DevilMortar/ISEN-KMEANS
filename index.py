@@ -43,6 +43,12 @@ def assignCluster(data, centroids):
         clusters[closest].append(point)
     return clusters
 
+def shuffleList(data):
+    import random
+    random.shuffle(data)
+    return data
+
+
 def updateCentroids(clusters):
     centroids = []
     for cluster in clusters:
@@ -54,7 +60,10 @@ def updateCentroids(clusters):
     return centroids
 
 
-def kMeans(data, k, maxIterations=100):
+def kMeans(data, k, maxIterations):
+    # Shuffle the data
+    data = shuffleList(data)
+    # Initialize the iteration
     iteration = 0
     # Initialize the centroids
     centroids = []
@@ -83,18 +92,29 @@ def kMeans(data, k, maxIterations=100):
             list.append(newPoint)
     return list
 
-      
-                
+def precision(list):
+    total = 0
+    for row in list:
+        total += distance(row[0:2], row[2:4])
+    return total / len(list)
 
-    
-
-    
-
+# Initialize the data
 data = cleanData(loadCSV('2d_data.csv'))
-#list = cleanData(loadCSV('2d_data.csv'))
-#drawLib.draw2D(list, size=10, drawLinks=True)
-list = kMeans(data, 20, maxIterations=200)
-drawLib.draw2D(list, size=10, drawLinks=True)
+perfectList = [[] for i in range(len(data))]
+# Try to find the best list of centroids
+for i in range(20):
+    list = kMeans(data, 50, 100)
+    accuracy = precision(list)
+    if i==0:
+        copyListIntoList(list, perfectList)
+    else:
+        if accuracy < precision(perfectList):
+            copyListIntoList(list, perfectList)
+    print(accuracy)
+print("Best precision = ",precision(perfectList))
+# Draw the clusters
+drawLib.draw2D(perfectList, size=10, drawLinks=True)
+# Save the data
 saveCSV('export.csv', list)
 
 
