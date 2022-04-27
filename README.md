@@ -14,7 +14,8 @@ random, matplot, numpy, pylab, csv
 
 ## Authors
 
-* **Mathias Citrini** - *Initial work* - [DevilMortar](https://github.com/DevilMortar)
+* **Mathias Citrini** - *Project Manager* - [DevilMortar](https://github.com/DevilMortar)
+* **Corentin Thibaud** - *Developer* - [Corentin Thibaut](https://github.com/corentinthibaud)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
