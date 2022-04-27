@@ -6,10 +6,10 @@ It will then export the points to a csv file.
 
 ### Prerequisites
 
-You need to install python last version and download the lib :
+You need to install python last version on the [Python Website](https://www.python.org/) and get all the lib required by executing in your terminal :
 
 ```
-random, matplot, numpy, pylab, csv
+pip install numpy matplotlib
 ```
 
 ## Authors
