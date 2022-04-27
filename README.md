@@ -20,4 +20,4 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is royalty free. You can use it for yout personnal and commercial project.
+This project is royalty free. You can use it for your personnal and commercial project.
