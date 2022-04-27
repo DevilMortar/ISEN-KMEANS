@@ -1,5 +1,23 @@
 # ISEN-KMEANS
 
-Ce code consite à effectuer un algorythme K-Means sur une liste de points, contenu dans un fichier csv.
-Il affichera ensuite tous les points, colorisés selon leur cluster, ainsi que tous les centroids.
-Il exportera ensuite les points dans un fichier csv.
+This code consists of performing a K-Means algorithm on a list of points, contained in a csv file.
+It will then display all the points, colorized according to their cluster, as well as all the centroids.
+It will then export the points to a csv file.
+
+### Prerequisites
+
+You need to install python last version and download the lib :
+
+```
+random, matplot, numpy, pylab, csv
+```
+
+## Authors
+
+* **Mathias Citrini** - *Initial work* - [DevilMortar](https://github.com/DevilMortar)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is royalty free. You can use it for yout personnal and commercial project.
