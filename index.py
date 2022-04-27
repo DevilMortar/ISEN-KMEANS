@@ -99,11 +99,11 @@ def precision(list):
     return total / len(list)
 
 # Initialize the data
-data = cleanData(loadCSV('2d_data.csv'))
+data = cleanData(loadCSV('mock_2d_data.csv'))
 perfectList = [[] for i in range(len(data))]
 # Try to find the best list of centroids
 for i in range(20):
-    list = kMeans(data, 50, 100)
+    list = kMeans(data, 4, 100)
     accuracy = precision(list)
     if i==0:
         copyListIntoList(list, perfectList)
