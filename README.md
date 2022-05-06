@@ -15,10 +15,10 @@ pip install numpy matplotlib
 ## Authors
 
 * **Mathias Citrini** - *Project Manager* - [DevilMortar](https://github.com/DevilMortar)
-* **Corentin Thibaud** - *Developer* - [Corentin Thibaut](https://github.com/corentinthibaud)
+* **Corentin Thibaud** - *Developer* - [Corentin Thibaud](https://github.com/corentinthibaud)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/DevilMortar/ISEN-KMEANS/graphs/contributors) who participated in this project.
 
 ## License
 
-This project is royalty free. You can use it for your personnal and commercial project.
+This project is royalty free. You can use it for your personal and commercial project.
