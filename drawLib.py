@@ -3,7 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.collections as mc
+import mpl_toolkits.mplot3d.art3d as mc3d
 import pylab as pl
+
 
 def draw2D(samples, size=10, drawLinks=True):
     # Formatting the data:
@@ -63,8 +65,8 @@ def draw3D(samples, size=10, drawLinks=True):
     ax.set_xlabel('x', fontsize=12)
     ax.set_ylabel('y', fontsize=12)
     ax.set_zlabel('z', fontsize=12)
-    #if drawLinks:
-        #ax.add_collection3d(mc.Line3DCollection(links, colors=C, alpha=0.1, linewidths=1))
+    if drawLinks:
+        ax.add_collection3d(mc3d.Line3DCollection(links, colors=C, alpha=0.1, linewidths=1))
     ax.scatter3D(X, Y, Z, c=C, alpha=0.5, s=10)
     for cent in centroids:
         ax.plot3D(cent[0], cent[1], cent[2], c='black', marker='+', markersize=8)
