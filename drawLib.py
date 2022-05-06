@@ -70,5 +70,6 @@ def draw3D(samples, size=10, drawLinks=True):
     ax.scatter3D(X, Y, Z, c=C, alpha=0.5, s=10)
     for cent in centroids:
         ax.plot3D(cent[0], cent[1], cent[2], c='black', marker='+', markersize=8)
+    ax.autoscale()
     ax.margins(0.05)
     plt.show()

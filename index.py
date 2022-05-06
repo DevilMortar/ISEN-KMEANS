@@ -12,7 +12,7 @@ def loadCSV(file):
 def saveCSV(file, data):
     with open('file/' + file, 'w', newline='') as f:
         writer = csv.writer(f, delimiter=',')
-        header = ['x', 'y', 'centroid_x', 'centroid_y']
+        header = ['x', 'y', 'z', 'centroid_x', 'centroid_y', 'centroid_z']
         writer.writerow(header)
         for row in data:
             writer.writerow(row)
@@ -94,13 +94,13 @@ def kMeans(data, k, maxIterations):
     return list
 
 def precision(list):
-    total = 0
+    sumDistances = 0
     for row in list:
-        total += distance(row[:3], row[3:6])
-    return total / len(list)
+        sumDistances += distance(row[:3], row[3:6])
+    return sumDistances / len(list)
 
 # Initialize the data
-data = cleanData(loadCSV('mock_2d_data.csv'))
+data = cleanData(loadCSV('2d_data.csv'))
 perfectList = [[] for i in range(len(data))]
 # Try to find the best list of centroids
 for i in range(5):
@@ -117,7 +117,6 @@ print("Best precision = ",precision(perfectList))
 drawLib.draw3D(perfectList, size=10, drawLinks=True)
 # Save the data
 saveCSV('export.csv', list)
-drawLib.draw2D(loadCSV)
 
 
 
