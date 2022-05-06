@@ -1,6 +1,4 @@
-from ast import Or
 import csv
-from email import header
 import drawLib
 
 def loadCSV(file):
@@ -119,6 +117,7 @@ saveCSV('export.csv', list)
 
 
 
+drawLib.draw2D(loadCSV)
 
 
 
