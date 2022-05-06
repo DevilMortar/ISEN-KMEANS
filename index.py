@@ -18,14 +18,15 @@ def saveCSV(file, data):
             writer.writerow(row)
 
 def cleanData(data):
-    # Remove the first line
     data.pop(0)
-    # Create a list of tuples
+    for row in data:
+        if len(row) == 2:
+            row.append(0)
     data = [tuple(map(float, row)) for row in data]
     return data
 
 def distance(Point1, Point2):
-    return ((Point1[0] - Point2[0]) ** 2 + (Point1[1] - Point2[1]) ** 2) ** 0.5
+    return ((Point1[0] - Point2[0]) ** 2 + (Point1[1] - Point2[1]) ** 2 + (Point1[2] - Point2[2]) ** 2) ** 0.5
 
 def copyListIntoList(origin, destination):
     for i in range(len(origin)):
@@ -54,7 +55,7 @@ def updateCentroids(clusters):
             pass
         else:
             # Calculate the middle of the cluster
-            centroids.append((sum(cluster[i][0] for i in range(len(cluster))) / len(cluster), sum(cluster[i][1] for i in range(len(cluster)))/ len(cluster)))
+            centroids.append((sum(cluster[i][0] for i in range(len(cluster))) / len(cluster), sum(cluster[i][1] for i in range(len(cluster)))/ len(cluster), sum(cluster[i][2] for i in range(len(cluster)))/ len(cluster)))
     return centroids
 
 
@@ -85,22 +86,24 @@ def kMeans(data, k, maxIterations):
             newPoint = []
             newPoint.append(point[0])
             newPoint.append(point[1])
+            newPoint.append(point[2])
             newPoint.append(centroids[i][0])
             newPoint.append(centroids[i][1])
+            newPoint.append(centroids[i][2])
             list.append(newPoint)
     return list
 
 def precision(list):
     total = 0
     for row in list:
-        total += distance(row[0:2], row[2:4])
+        total += distance(row[:3], row[3:6])
     return total / len(list)
 
 # Initialize the data
 data = cleanData(loadCSV('mock_2d_data.csv'))
 perfectList = [[] for i in range(len(data))]
 # Try to find the best list of centroids
-for i in range(20):
+for i in range(5):
     list = kMeans(data, 4, 100)
     accuracy = precision(list)
     if i==0:
@@ -111,12 +114,9 @@ for i in range(20):
     print(accuracy)
 print("Best precision = ",precision(perfectList))
 # Draw the clusters
-drawLib.draw2D(perfectList, size=10, drawLinks=True)
+drawLib.draw3D(perfectList, size=10, drawLinks=True)
 # Save the data
 saveCSV('export.csv', list)
-
-
-
 drawLib.draw2D(loadCSV)
 
 
